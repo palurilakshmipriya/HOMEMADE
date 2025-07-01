@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - Homemade Pickles & Snacks{% endblock %}
+
+{% block styles %}
+<style>
+    .nav-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    }
+    .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1000px;
+    }
+    .nav-box {
+        background-color: rgba(253, 235, 208, 0.95);
+        border: 3px solid #e59866;
+        border-radius: 16px;
+        width: 240px;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    .nav-box:hover {
+        background-color: #f9e79f;
+        transform: translateY(-6px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    .nav-box a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="nav-wrapper">
+    <div class="nav-container">
+        <div class="nav-box"><a href="{{ url_for('home') }}">Home</a></div>
+        <div class="nav-box"><a href="{{ url_for('login') }}">Login</a></div>
+        <div class="nav-box"><a href="{{ url_for('about') }}">About</a></div>
+        <div class="nav-box"><a href="{{ url_for('veg_pickles') }}">Veg Pickles</a></div>
+        <div class="nav-box"><a href="{{ url_for('non_veg_pickles') }}">Non-Veg Pickles</a></div>
+        <div class="nav-box"><a href="{{ url_for('snacks') }}">Snacks</a></div>
+        <div class="nav-box"><a href="{{ url_for('contact') }}">Contact</a></div>
+        <div class="nav-box"><a href="{{ url_for('cart') }}">Cart</a></div>
+    </div>
+</div>
+{% endblock %}

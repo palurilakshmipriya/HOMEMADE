@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Homemade Pickles & Snacks{% endblock %}
+
+{% block header %}
+<p>Authentic tastes from our kitchen to yours!</p>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .product-preview {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .product-box {
+        background-color: white;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem;
+        width: 250px;
+        box-shadow: 2px 2px 10px #ccc;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h2>Featured Products</h2>
+<div class="product-preview">
+    {% for product in featured_products %}
+    <div class="product-box">
+        <img src="{{ url_for('static', filename='images/' + product.image) }}" 
+             alt="{{ product.name }}" width="200" height="100">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
